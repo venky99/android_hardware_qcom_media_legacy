@@ -1709,11 +1709,13 @@ bool venc_dev::venc_set_slice_delivery_mode(OMX_BOOL enable)
   DEBUG_PRINT_HIGH("Set slice_delivery_mode: %d", enable);
   if(multislice.mslice_mode == VEN_MSLICE_CNT_MB)
   {
+#ifndef QCOM_LEGACY_OMX
     if(ioctl(m_nDriver_fd, VEN_IOCTL_SET_SLICE_DELIVERY_MODE) < 0)
     {
       DEBUG_PRINT_ERROR("Request for setting slice delivery mode failed");
       return false;
     }
+#endif
   }
   else
   {
