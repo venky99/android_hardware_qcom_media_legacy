@@ -37,11 +37,14 @@ libOmxVdec-def += -DMAX_RES_1080P_EBI
 libOmxVdec-def += -DPROCESS_EXTRADATA_IN_OUTPUT_PORT
 libOmxVdec-def += -D_COPPER_
 endif
+ifeq ($(TARGET_BOARD_PLATFORM),msm7x27)
+libOmxVdec-def += -DMAX_RES_720P
+endif
 
 libOmxVdec-def += -D_ANDROID_ICS_
 
 #ifeq ($(TARGET_USES_ION),true)
-libOmxVdec-def += -DUSE_ION
+#libOmxVdec-def += -DUSE_ION
 #endif
 
 # ---------------------------------------------------------------------------------
